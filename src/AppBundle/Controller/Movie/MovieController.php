@@ -6,21 +6,21 @@
  * Date: 29/03/2016
  * Time: 18:10
  */
-namespace AppBundle\Controller\Article;
+namespace AppBundle\Controller\Movie;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController extends Controller
+class MovieController extends Controller
 {
     /**
      * @Route("/list")
      */
     public function listAction()
     {
-        return new Response('List of articles');
+        return new Response('List of movies');
     }
 
     /**
@@ -33,6 +33,6 @@ class ArticleController extends Controller
     {
         //dump($request);
         $tag = $request->query->get('myTag');
-        return new Response("You are reading article no.".$id." and myTag value is ".$tag);
+        return new Response("You are looking at movie no.".$id." and myTag value is ".$tag);
     }
 }
