@@ -8,6 +8,7 @@
  */
 namespace AppBundle\Controller\Article;
 
+use AppBundle\AppBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,5 +35,16 @@ class ArticleController extends Controller
         //dump($request);
         $tag = $request->query->get('myTag');
         return new Response("You are reading article no.".$id." and myTag value is ".$tag);
+        //return $this->render('AppBundle');
+    }
+
+    /**
+     * @Route("/show/{articleName}")
+     *
+     * @param $articleName
+     */
+    public function showArticleNameAction($articleName)
+    {
+        return$this->render('AppBundle::Article/index.html.twig', ['articleName' => $articleName]);
     }
 }
