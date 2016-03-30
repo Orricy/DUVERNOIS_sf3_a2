@@ -36,7 +36,7 @@ class ArticleController extends Controller
                 'name' => 'Laravel'
             ],
         ];
-        return$this->render('AppBundle::Article/list.html.twig', ['tutorials' => $tutorials]);
+        return$this->render('AppBundle:Article:index.html.twig', ['tutorials' => $tutorials]);
     }
 
     /**

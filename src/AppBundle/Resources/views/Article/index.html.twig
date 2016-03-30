@@ -1,3 +1,7 @@
-Hello World!
-<p>it suck but we'll had more features later</p>
-<p>{{ articleName }}</p>
+{% extends('::base.html.twig') %}
+
+{% block body %}
+    {% include('AppBundle:Article/Partial:list.html.twig') %}
+    <p>it suck but we'll had more features later</p>
+    <p>{! articleName !}</p>
+{% endblock %}
