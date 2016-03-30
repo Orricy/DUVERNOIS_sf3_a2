@@ -8,6 +8,20 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Home Page</h1>
-    <p>this is my home page</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Liste des articles</h1>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in articles %}
+                <article class="col-md-12">
+                    <h3>{{ article.title }}</h3>
+                    <small>{{ article.author }}</small>
+                    <p>{{ article.content }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
