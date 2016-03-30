@@ -1,0 +1,5 @@
+<h1>List of articles</h1>
+{% for tutorial in tutorials %}
+    <p>L'id du tutoriel est : {{ tutorial.id }}</p>
+    <p>Le nom du tutoriel est : {{ tutorial.name }}</p>
+{% endfor %}
