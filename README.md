@@ -9,8 +9,8 @@ php bin/console d:s:u --force
 
 selection par tag, auteur (done)
 liste générales (done)
-séléction d'un articles (done but bad lloking bad)
-création d'articles
+séléction d'un articles (done but bad looking)
+création d'articles (done but bad looking)
 
 navigation (liste et création)
 Lundi 4 23h
