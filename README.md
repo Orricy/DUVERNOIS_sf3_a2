@@ -7,6 +7,15 @@ php bin/console server:run
 php bin/console d:s:u --dump-sql
 php bin/console d:s:u --force
 
+selection par tag, auteur (done)
+liste générales
+séléction d'un articles
+création d'articles
+
+navigation (liste et création)
+Lundi 4 23h
+NOM_sf3_a2
+
 php bin/console doctrine:generate:entity
 
 A Symfony project created on March 29, 2016, 3:25 pm.

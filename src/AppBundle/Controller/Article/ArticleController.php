@@ -87,9 +87,25 @@ class ArticleController extends Controller
     }
 
     /**
+     * @Route("/tag", name="article_tag")
+     */
+    public function tagAction(Request $request)
+    {
+        $tag = $request->query->get('tag');
+        $manager = $this->getDoctrine()->getManager();
+
+        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
+
+        $articles = $articleRepository->findBy([
+            'tag' => $tag
+        ]);
+        return $this->render('AppBundle::Home/index.html.twig', ['articles' => $articles]);
+    }
+
+    /**
      * @Route("/tag/new")
      */
-    public function newAction(Request $request)
+    public function newTagAction(Request $request)
     {
         $form = $this->createForm(TagType::class);
 
@@ -109,6 +125,14 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_list');
         }
         return $this->render('AppBundle::Article/tag.new.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("new")
+     */
+    public function newArticleAction(Request $request)
+    {
+        return new Response('in dev');
     }
 
 
