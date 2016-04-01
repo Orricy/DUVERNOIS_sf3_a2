@@ -18,7 +18,7 @@
             {% for article in articles %}
                 <article class="col-md-12">
                     <h3>{{ article.title }}</h3>
-                    <small>{{ article.author }}</small>
+                    <a href="{{ path('article_author', { 'author': article.author}) }}"><small>{{ article.author }}</small></a>
                     <p>{{ article.content }}</p>
                 </article>
             {% endfor %}

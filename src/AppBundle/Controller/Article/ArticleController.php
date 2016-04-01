@@ -62,4 +62,30 @@ class ArticleController extends Controller
     {
         return$this->render('AppBundle::Article/index.html.twig', ['articleName' => $articleName]);
     }
+
+    /**
+     * @Route("/author", name="article_author")
+     */
+    public function authorAction(Request $request)
+    {
+        $author = $request->query->get('author');
+        $manager = $this->getDoctrine()->getManager();
+
+        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
+
+        $articles = $articleRepository->findBy([
+                'author' => $author
+            ]);
+        return $this->render('AppBundle::Home/index.html.twig', ['articles' => $articles]);
+    }
+
+    /**
+     * @Route("/new")
+     */
+    public function newAction()
+    {
+
+    }
+
+
 }

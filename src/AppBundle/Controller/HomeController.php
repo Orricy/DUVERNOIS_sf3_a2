@@ -41,6 +41,6 @@ class HomeController extends Controller
         $manager->persist($article);
         $manager->flush();*/
 
-        return$this->render('AppBundle::Home/index.html.twig', ['articles' => $articles]);
+        return $this->render('AppBundle::Home/index.html.twig', ['articles' => $articles]);
     }
 }
