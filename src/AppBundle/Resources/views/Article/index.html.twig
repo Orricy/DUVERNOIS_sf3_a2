@@ -1,7 +1,13 @@
 {% extends('::base.html.twig') %}
 
 {% block body %}
-    {% include('AppBundle:Article/Partial:list.html.twig') %}
     <p>it suck but we'll had more features later</p>
-    <p>{! articleName !}</p>
+    {% for article in articles %}
+        <article class="col-md-12">
+            <h3>{{ article.title }}</h3>
+            <a href="{{ path('article_author', { 'author': article.author}) }}"><small>{{ article.author }}</small></a>
+            <p>{{ article.content }}</p>
+            <p>Tag : <a href="{{ path('article_tag', { 'tag': article.tag}) }}">{{ article.tag }}</a></p>
+        </article>
+    {% endfor %}
 {% endblock %}

@@ -61,13 +61,20 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/show/{articleName}")
+     * @Route("/show", name="article_name")
      *
-     * @param $articleName
      */
-    public function showArticleNameAction($articleName)
+    public function showArticleNameAction(Request $request)
     {
-        return$this->render('AppBundle::Article/index.html.twig', ['articleName' => $articleName]);
+        $article = $request->query->get('name');
+        $manager = $this->getDoctrine()->getManager();
+
+        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
+
+        $articles = $articleRepository->findBy([
+            'title' => $article
+        ]);
+        return$this->render('AppBundle::Article/index.html.twig', ['articles' => $articles]);
     }
 
     /**

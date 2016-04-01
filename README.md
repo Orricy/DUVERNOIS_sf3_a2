@@ -8,8 +8,8 @@ php bin/console d:s:u --dump-sql
 php bin/console d:s:u --force
 
 selection par tag, auteur (done)
-liste générales
-séléction d'un articles
+liste générales (done)
+séléction d'un articles (done but bad lloking bad)
 création d'articles
 
 navigation (liste et création)
