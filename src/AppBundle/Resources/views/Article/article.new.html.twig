@@ -1,0 +1,9 @@
+{% extends('::base.html.twig') %}
+{% block title %}
+    {{ parent() ~ ' - new tag' }}
+{% endblock %}
+
+{% block body %}
+    <h1>Ajout d'un article</h1>
+    {{ form(form) }}
+{% endblock %}

@@ -10,6 +10,7 @@ namespace AppBundle\Controller\Article;
 
 use AppBundle\AppBundle;
 use AppBundle\Entity\Article\Tag;
+use AppBundle\Form\Type\Article\ArticleCreate;
 use AppBundle\Form\Type\Article\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -135,11 +136,24 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("new")
+     * @Route("/new")
      */
     public function newArticleAction(Request $request)
     {
-        return new Response('in dev');
+        $form = $this->createForm(ArticleCreate::class);
+
+        $form->handleRequest($request);
+
+        //$tag = new Tag();
+        if($form->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $article = $form->getData();
+
+            $manager->persist($article);
+            $manager->flush();
+            return $this->redirectToRoute('article_list');
+        }
+        return $this->render('AppBundle::Article/article.new.html.twig', ['form' => $form->createView()]);
     }
 
 
