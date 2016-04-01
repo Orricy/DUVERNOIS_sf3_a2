@@ -20,7 +20,6 @@ class TagType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('slug')
             ->add('save', SubmitType::class);
     }
 
@@ -28,7 +27,7 @@ class TagType extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'dateClass' => 'AppBundle\Entity\Article\Tag',
+            'data_class' => 'AppBundle\Entity\Article\Tag',
         ]);
     }
 }

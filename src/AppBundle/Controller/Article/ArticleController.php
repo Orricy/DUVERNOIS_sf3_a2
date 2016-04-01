@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Article;
 
 use AppBundle\AppBundle;
+use AppBundle\Entity\Article\Tag;
 use AppBundle\Form\Type\Article\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,12 +19,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/list")
+     * @Route("/list", name="article_list")
      */
     public function listAction()
     {
+        $manager = $this->getDoctrine()->getManager();
+        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
+
+        $articles = $articleRepository->findAll();
+        return $this->render('AppBundle::Home/index.html.twig', ['articles' => $articles]);
         //return new Response('List of articles');
-        $tutorials = [
+        /*$tutorials = [
             [
                 'id' => 2,
                 'name' => 'Symfony2'
@@ -37,7 +43,7 @@ class ArticleController extends Controller
                 'name' => 'Laravel'
             ],
         ];
-        return$this->render('AppBundle:Article:index.html.twig', ['tutorials' => $tutorials]);
+        return$this->render('AppBundle:Article:index.html.twig', ['tutorials' => $tutorials]);*/
     }
 
     /**
@@ -89,8 +95,18 @@ class ArticleController extends Controller
 
         $form->handleRequest($request);
 
+        //$tag = new Tag();
         if($form->isValid()){
-            dump($form->getData());die;
+            $manager = $this->getDoctrine()->getManager();
+            $stringUtil = $this->get('string.util');
+            /** @var Tag $tag */
+            $tag = $form->getData();
+            $slug =  $stringUtil->slugify($tag->getName());
+            $tag->setSlug($slug);
+
+            $manager->persist($tag);
+            $manager->flush();
+            return $this->redirectToRoute('article_list');
         }
         return $this->render('AppBundle::Article/tag.new.html.twig', ['form' => $form->createView()]);
     }

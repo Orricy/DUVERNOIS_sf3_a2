@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity\Article;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,9 +44,9 @@ class Article
     private $author;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="tag", type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Tag", cascade={"persist"})
      */
     private $tag;
 
