@@ -4,4 +4,9 @@ http://localhost/symfony-start/sf3/web/app_dev.php/_profiler
 
 php bin/console server:run
 
+php bin/console d:s:u --dump-sql
+php bin/console d:s:u --force
+
+php bin/console doctrine:generate:entity
+
 A Symfony project created on March 29, 2016, 3:25 pm.

@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Article;
 
 use AppBundle\AppBundle;
+use AppBundle\Form\Type\Article\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -80,11 +81,18 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/new")
+     * @Route("/tag/new")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $form = $this->createForm(TagType::class);
 
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+            dump($form->getData());die;
+        }
+        return $this->render('AppBundle::Article/tag.new.html.twig', ['form' => $form->createView()]);
     }
 
 
