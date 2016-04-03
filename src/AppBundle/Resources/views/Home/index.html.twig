@@ -17,7 +17,7 @@
         <div class="row">
             {% for article in articles %}
                 <article class="col-md-12">
-                    <a href="{{ path('article_name', { 'name': article.title}) }}"><h3>{{ article.title }}</h3></a>
+                    <a href="{{ path('article_name', { 'name': article.title, 'id': article.id}) }}"><h3>{{ article.title }}</h3></a>
                     <a href="{{ path('article_author', { 'author': article.author}) }}"><small>{{ article.author }}</small></a>
                     <p>{{ article.content }}</p>
                     <p>Tag : <a href="{{ path('article_tag', { 'tag': article.tag}) }}">{{ article.tag }}</a></p>

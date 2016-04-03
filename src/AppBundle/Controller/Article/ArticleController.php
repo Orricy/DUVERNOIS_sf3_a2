@@ -67,13 +67,15 @@ class ArticleController extends Controller
      */
     public function showArticleNameAction(Request $request)
     {
-        $article = $request->query->get('name');
+        $articleName = $request->query->get('name');
+        $articleId = $request->query->get('id');
         $manager = $this->getDoctrine()->getManager();
 
         $articleRepository = $manager->getRepository('AppBundle:Article\Article');
 
         $articles = $articleRepository->findBy([
-            'title' => $article
+            'title' => $articleName,
+            'id' => $articleId
         ]);
         return$this->render('AppBundle::Article/index.html.twig', ['articles' => $articles]);
     }
