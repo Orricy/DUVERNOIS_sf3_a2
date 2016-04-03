@@ -16,6 +16,11 @@ article p{
 .navbar-btn{
     margin-left: 1%;
 }
+.new-article{
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    padding-bottom: 2%;
+}
 .new-article-btn{
     font-size: 2em;
     margin-top: 2%;
