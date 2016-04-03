@@ -1,13 +1,14 @@
 {% extends('::base.html.twig') %}
 
 {% block body %}
-    <p>it suck but we'll had more features later</p>
-    {% for article in articles %}
-        <article class="col-md-12">
-            <h3>{{ article.title }}</h3>
-            <a href="{{ path('article_author', { 'author': article.author}) }}"><small>{{ article.author }}</small></a>
-            <p>{{ article.content }}</p>
-            <p>Tag : <a href="{{ path('article_tag', { 'tag': article.tag}) }}">{{ article.tag }}</a></p>
-        </article>
-    {% endfor %}
+    <div class="container">
+        {% for article in articles %}
+            <article class="col-md-12">
+                <h3>{{ article.title }}</h3>
+                <a href="{{ path('article_author', { 'author': article.author}) }}"><small>{{ article.author }}</small></a>
+                <p>{{ article.content }}</p>
+                <p>Tag : <a href="{{ path('article_tag', { 'tag': article.tag}) }}">{{ article.tag }}</a></p>
+            </article>
+        {% endfor %}
+    </div>
 {% endblock %}

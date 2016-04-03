@@ -20,12 +20,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{ path('home') }}">HOME</a>
+                        <a class="navbar-brand" href="{{  path('home') }}">HOME</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{ path('new_article') }} type="button" class="btn btn-default navbar-btn"">Write an article</a></li>
-                            <li><a href="{{ path('article_list') }} type="button" class="btn btn-default navbar-btn"">List of articles</a></li>
+                            <li class="col-md-6"><a href="{{ path('new_article') }}" type="button" class="btn btn-default navbar-btn"">Write an article</a></li>
+                            <li class="col-md-6"><a href="{{ path('article_list') }}" type="button" class="btn btn-default navbar-btn"">List of articles</a></li>
                         </ul>
                     </div>
                 </div>

@@ -10,5 +10,13 @@ article p{
     font-size: 1.2em;
 }
 .navbar-brand{
+    margin-top: 10%;
     font-size: 2em;
+}
+.navbar-btn{
+    margin-left: 1%;
+}
+.new-article-btn{
+    font-size: 2em;
+    margin-top: 2%;
 }
