@@ -136,7 +136,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/new")
+     * @Route("/new", name="new_article")
      */
     public function newArticleAction(Request $request)
     {
